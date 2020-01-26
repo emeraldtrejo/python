@@ -1,0 +1,13 @@
+sum = 3 + 4 + 5
+count = 3
+average = sum / count
+print("the average is:" + str(average))
+
+
+//greeting is function name, name is parameter
+def greeting(name, department):
+  print("Welcome," + name)
+  print("You are part of" + department)
+  
+  //call the function 
+  greeting("blake", "IT")

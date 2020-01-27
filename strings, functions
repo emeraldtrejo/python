@@ -28,3 +28,18 @@ def convert_seconds(seconds):
   //use len to calculate length
 
 # this is how you comment
+
+//this can be used isntead of an if/else statement
+def is_even(number):
+  if number % 2 == 0:
+      return True
+     return False
+     
+ // using elif
+ def hint_username(username):
+  if len(username) < 3:
+    print("invalid username")
+  elif len(username) > 15:
+    print("too long")
+  else:
+    print("Valid")

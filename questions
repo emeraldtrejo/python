@@ -1,0 +1,18 @@
+def convert_distance(miles):
+  km = miles * 1.6
+  return km
+  result = convert_distance(55)
+  print("The distance in km is" + str(result))
+  print("The roundtrip in km is" + str(result * 2))
+  
+  def order_numers(number1, number2):
+    if number2 > number1:
+      return number1, number 2
+    else:
+      return number2, number1
+ (smaller, bigger) = order_numbers(100,99)
+ print(smaller, bigger)
+ 
+ def hint_username(username):
+  if len(username) < 3:
+    print("invalid username must be 3 characters long at leasr")

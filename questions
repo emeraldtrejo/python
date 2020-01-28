@@ -16,3 +16,15 @@ def convert_distance(miles):
  def hint_username(username):
   if len(username) < 3:
     print("invalid username must be 3 characters long at leasr")
+
+def number_group(numnber):
+  if (number_group > 0):
+    return "Positive"
+  elif(number_group < 0):
+    return "Negative"
+  else:
+    return "Zero"
+    
+print(number_group(10))
+print(number_group(0))
+print(number_group(-5))

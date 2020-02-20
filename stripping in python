@@ -1,0 +1,20 @@
+" yes ".strip()
+is the same as 'yes'  as it removes white space
+
+.lstrip is used for the left side
+.rstrip is for the right side
+
+.count() how many times a given substring appears within a string
+ 
+ .endswith() whether the string ends with a certain substring
+ 
+ .isnumeric() made up of just numbers
+ 
+ .join is also used for conctatentating
+ " ".join(["This", "is", "a", "phrase", "joined", "by", "space"])
+ 'This is a phrace joined by spaces'
+ "...".join(["This", "is", "a", "phrase", "joined", "by", "space"])
+ 'This...is...a...phrace...joined...by...spaces'
+ 
+ "This is another example".split()
+ ['This','is','another','example']

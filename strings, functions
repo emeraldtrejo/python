@@ -43,3 +43,11 @@ def is_even(number):
     print("too long")
   else:
     print("Valid")
+
+
+price = 7.5
+with_tax = price * 1.09
+print(price, with_tax) //answer is 1.5, 8.175
+
+print("Base price: ${:.2f}. With tax: ${:.2f}".format(price, with_tax))
+// Base price: $7.50. With tax: $8.18

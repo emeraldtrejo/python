@@ -4,3 +4,8 @@ print("Hello" {}, your lucky number is {}".format(name,number))
 
 print("Your lucky number is {number}, {name}.".format(name = name, number=len(name)*3))
 
+message = "A kong string with a silly type"
+message[2] = "l"   //this is wrong and would give an error
+
+new_message = message[0:2] + "l" + message[3:1]
+print(new_message)

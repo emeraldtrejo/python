@@ -1,0 +1,17 @@
+#data inside dictionaries take the form of pairs of keys and values
+#stored keys that are strings that point to integer values
+file_counts = {"jpg":10, "txt":14, "csv":2, "py":23}
+print(file_counts)
+#to add to the dictonary
+file_counts["cfg"] = 8
+"jpg" in file_counts
+True
+#delete a dictonary
+del file_counts["cfg"]
+
+
+toc = {"Introduction":1, "Chapter 1":4, "Chapter 2":11, "Chapter 3":25, "Chapter 4":30}
+toc["Epilogue"] = 39 # Epilogue starts on page 39
+toc["Chapter 3"] = 24 # Chapter 3 now starts on page 24
+print(toc) # What are the current contents of the dictionary?
+print("Chapter 5" in toc)  # Is there a Chapter 5?

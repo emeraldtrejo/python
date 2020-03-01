@@ -1,0 +1,13 @@
+class Apple:
+#when no body use pass
+  pass
+  
+class Apple:
+  color = ""
+  flavor= ""
+  
+#create new instance
+jonagold = Apple()
+jonagold.flavor = "sweet"
+jonagold.color = "red"
+print(jonagold.color)

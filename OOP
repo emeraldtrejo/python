@@ -11,3 +11,62 @@ jonagold = Apple()
 jonagold.flavor = "sweet"
 jonagold.color = "red"
 print(jonagold.color)
+
+class Piglet:
+  def speak(self):
+    print("oink oink")
+    
+hamlet = Piglet()
+hamlet.speak()
+
+
+class Piglet:
+  name = "piglet"
+  def speak(self):
+    print("oink! Im {}! oink!").format(self.name)
+    
+ classs Piglet:
+  years = 0
+    def pig_years(self):
+      return self.years * 18
+ 
+ piggy = Piglet()
+ print(piggy.pig_years())
+ 
+ piggy.years = 2
+ print(piggy.years()))
+ 
+ class Dog:
+  years = 0
+  def dog_years(self):
+      return self.years * 7
+    
+fido=Dog()
+fido.years=3
+print(fido.dog_years())
+
+class Apple:
+  def __init__(self, color, flavor):
+    self.color = color
+    self.flavor = flavor
+
+jonagold = Apple("red", sweet")
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def greeting(self):
+        # Should return "hi, my name is " followed by the name of the Person.
+        return ("hi, my name is {}".format(self.name)) 
+
+# Create a new instance with a name of your choice
+some_person = Person("DonJulio")  
+# Call the greeting method
+print(some_person.greeting())
+
+
+def to_seconds(hours, minutes, seconds):
+  """Returns the amount of seconds in the given hours, minutes and seconds. """
+  return hours*3600 + minutes*60 + seconds
+  
+  help(to_seconds)

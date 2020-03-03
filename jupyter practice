@@ -1,0 +1,52 @@
+#block 1
+class Elevator:
+    def __init__(self, bottom, top, current):
+        """Initializes the Elevator instance."""
+        self.bottom = bottom
+        self.top = top
+        self.current = current
+    def up(self):
+        """Makes the elevator go up one floor."""
+        if(self.current < self.top):
+            self.current += 1
+    def down(self):
+        """Makes the elevator go down one floor."""
+        if(self.current > self.bottom):
+            self.current -= 1
+        pass
+    def go_to(self, floor):
+        """Makes the elevator go to the specific floor."""
+        self.current = floor
+        return floor
+    
+elevator = Elevator(-1, 10, 0)
+
+#block 2
+elevator.up() 
+elevator.current #should output 1
+
+#block 3
+elevator.down() 
+elevator.current #should output 0
+
+#block 4
+elevator.go_to(10) 
+elevator.current #should output 10
+
+#block 5
+# Go to the top floor. Try to go up, it should stay. Then go down.
+elevator.go_to(10)
+elevator.up()
+elevator.down()
+print(elevator.current) # should be 9
+# Go to the bottom floor. Try to go down, it should stay. Then go up.
+elevator.go_to(-1)
+elevator.down()
+elevator.down()
+elevator.up()
+elevator.up()
+print(elevator.current) # should be 1
+
+#block 6
+elevator.go_to(5)
+print("Current floor:" + str(elevator.current))

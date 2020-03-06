@@ -1,0 +1,53 @@
+numbers = [4,6,2,7,1,]
+numbers.sort()
+print(numbers)
+
+names = ["Carlos, "Ray", "Alex", "Kelly"]
+print(names)
+print(sorted(names))
+
+#order based on length of name
+print(sorted(names, key=len))
+
+#sorted returns a new list, sort returns the old list
+
+def get_event_date(event):  
+  return event.date
+
+def current_users(events):
+  #sort the events and passed the function as key
+  events.sort(key=get_event_date)
+  #create dictionary to store user and machine
+  machines ={}
+  #iterae through list of events
+  for event in events:
+    #check if in dictionary, if not add as empty set 
+      if event.machine not in machines:
+        machines[event.machine] = set()
+      if event.type = "login":
+        machines[event.machine].add(event.user)
+      elif event.type = "logout":
+        machines[event.machine].remove(event.user)
+  return machines
+  
+#iterate keys snd values in dictionary, use items which returns key and value in dictionary
+#only print when set of users have greater than 0 elements
+def generate_report(machines):
+  for machine, users in machines.items():
+    if len(users) > 0:
+    #generate string seperated by comma
+      user_list = ",".join(users)
+      print("{}:{}".format(machine, user_list))
+      
+      
+   class Event:
+    def __init__(self, event_date, event_type, machine_name, uesr):
+      self.date = event_date
+      self.type = event_type
+      self.machine = machine_name
+      self.user = user
+      
+   users = current_users(events)
+   print(users)
+   
+   generate_report(users)

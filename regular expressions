@@ -6,3 +6,191 @@ print(log[index+1:index+6])
 regex = r"\[(\d+)\]"
 result = re.search(regex,log)
 rpint(result[1])
+
+import re
+#the r in () stands for raw string
+result = re.search(r"aza", "plaza")
+print(result)
+
+print(re.search(r"^x", "xenon"))
+
+print(re.search(r"p.ng", "penguin))
+
+import re
+def check_aei (text):
+  result = re.search(r"a.e.i", text)
+  return result != None
+
+print(check_aei("academia")) # True
+print(check_aei("aerial")) # False
+print(check_aei("paramedic")) # True
+
+print(re.search(r"p.ng", "Pangaea", re.IGNORECASE))
+
+print(re.search(r"[Pp]ython", "Python"))
+
+print(re.search(r"[a-z]"way", "The end of the highway"))
+
+print(re.search(r"cloud[a-zA-Z0-9]"way", "cloudy"))
+
+#not a letter
+print(re.search(r"[^a-zA-Z ]"way", "Tis a sentence with spaces."))
+
+#match cat or dog
+print(re.search(r"cat\dog", "I like cats."))
+
+print(re.findall(r"cat\dog", "I like cats and dogs."))
+
+print(re.search(r"Py.*n", "Pygmalion"))
+
+print(re.search(r"o+l+", "goldfish"))
+
+import re
+def check_zip_code(text):
+  result = re.search(r" [0-9]{5}", text)
+  return result != None
+
+print(check_zip_code("The zip codes for New York are 10001 thru 11104.")) # True
+print(check_zip_code("90210 is a TV show")) # False
+print(check_zip_code("Their address is: 123 Main Street, Anytown, AZ 85258-0001.")) # True
+print(check_zip_code("The Parliament of Canada is at 111 Wellington St, Ottawa, ON K1A0A9.")) # False
+
+print(re.search(r"\.com", "mydomain.com"))
+
+print(re.search(r"\w*", "And _this_is_another"))
+
+import re
+def check_character_groups(text):
+  result = re.search(r"\w\s* \w\s*", text)
+  return result != None
+
+print(check_character_groups("One")) # False
+print(check_character_groups("123  Ready Set GO")) # True
+print(check_character_groups("username user_01")) # True
+print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
+
+print(re.search(r"^.*a$", "Azerbaijan"))
+
+#cant start with a number, 
+pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
+
+
+import re
+def check_sentence(text):
+  result = re.search(r"^[A-Z][\w\s]*[.!\?]$", text)
+  return result != None
+
+print(check_sentence("Is this is a sentence?")) # True
+print(check_sentence("is this is a sentence?")) # False
+print(check_sentence("Hello")) # False
+print(check_sentence("1-2-3-GO!")) # False
+print(check_sentence("A star is born.")) # True
+
+import re
+def check_time(text):
+  pattern = r"^([0-1][0-2]?|[1-9]):[0-5][0-9]\s?(am)|(AM)|(pm)|(PM)$"
+  result = re.search(pattern, text)
+  return result != None
+
+print(check_time("12:45pm")) # True
+print(check_time("9:59 AM")) # True
+print(check_time("6:60am")) # False
+print(check_time("five o'clock")) # False
+
+result = re.search(r"^(\w*), (\w*)$", "Lovelace, Ada")
+print(result)
+
+print(result.groups())
+print(result[0])
+
+"{} {}".format(result[2], result[1])
+
+def rearrange_name(name):
+  result = re.search(r"^(\w*), (\w*)$", name)
+  if result is None:
+    return name
+   return "{} {}".format(result[2], result[1])
+   
+rearrange_name("Lovelace, Ada")
+
+
+import re
+def rearrange_name(name):
+  result = re.search(r"^([\w\s.-]*), ([\w\s.-]*)$", name)
+  if result == None:
+    return name
+  return "{} {}".format(result[2], result[1])
+
+name=rearrange_name("Kennedy, John F.")
+print(name)
+
+#match any string of 5 letters
+print(re.search(r"[a-zA-Z]{5}", "a ghost"))
+
+print(re.findall(r"[a-zA-Z]{5}", "a scary ghost appeared"))
+
+#maarks beginning
+
+print(re.findall(r"\b[a-zA-Z]{5}\b", "a scary ghost appeared"))
+
+#range of 5 to 10 letters
+print(re.findall(r"\w{5,10}", "a scary ghost appeared"))
+
+print(re.findall(r"\w{5,}", "a scary ghost appeared"))
+
+print(re.search(r"s\w{,20}", "i really like strawberries"))
+
+
+import re
+log = "July 31 07:51:48 mycomputer bad_process[12345]: ERROR Performing pacakage upgrade"
+regex = r"\[(\d+)\]"
+result = re.search(regex, log)
+print(result[1])
+
+def extract_pid(log_line):
+  regex = r"\[(\d+)\]"
+  result = re.search(regex, log_line)
+  if result is None:
+    return ""
+  return result[1]
+  
+print(extract_pid(log))
+
+
+import re
+def extract_pid(log_line):
+    regex = r"\[(\d+)\]\:\s(\b[A-Z]{5,}\b)"
+    result = re.search(regex, log_line)
+    if result is None:
+        return None
+    return "{} ({})".format(result[1], result[2])
+
+print(extract_pid("July 31 07:51:48 mycomputer bad_process[12345]: ERROR Performing package upgrade")) # 12345 (ERROR)
+print(extract_pid("99 elephants in a [cage]")) # None
+print(extract_pid("A string that also has numbers [34567] but no uppercase message")) # None
+print(extract_pid("July 31 08:08:08 mycomputer new_process[67890]: RUNNING Performing backup")) # 67890 (RUNNING)
+
+
+re.split(r"[.?!]", "One sentence, Another one? And the last one!")
+
+#sub is substitute with replace
+re.sub(r"[\w.%+-]+@[\w.-]"+, "[REDACTED]", "Received an email for go_nuts95@my.example.com")
+
+#first parameter that contains 2 groups, one before the comma and one after the comma. use second parm to replace the matching string
+re.sub(r"^([\w.-]*),([\w.-]*)$", r"\2 \1", "LoveLace, Ada")
+
+#The convert_phone_number function checks for a U.S. phone number format: XXX-XXX-XXXX (3 digits followed by a dash, 
+#3 more digits followed by a dash, and 4 digits), 
+#and converts it to a more formal format that looks like this: (XXX) XXX-XXXX.
+
+import re
+def convert_phone_number(phone):
+  result = re.sub(r"\b(\d{3})-(\d{3})-(\d{4})\b", r"(\1) \2-\3", phone)
+  return result
+
+print(convert_phone_number("My number is 212-345-9999.")) # My number is (212) 345-9999.
+print(convert_phone_number("Please call 888-555-1234")) # Please call (888) 555-1234
+print(convert_phone_number("123-123-12345")) # 123-123-12345
+print(convert_phone_number("Phone number of Buckingham Palace is +44 303 123 7300")) # Phone number of Buckingham Palace is +44 303 123 7300
+
+https://regexcrossword.com/

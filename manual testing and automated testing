@@ -1,0 +1,34 @@
+#call command to runa  test 
+# cat rearrange.py
+
+#!/usr/bin/env python3
+
+import re
+def rearrange_name(name):
+  result = re.search(r"^([\w.]*)*)$", name)
+  returhn"{} {}".format(result[2], result[1])
+
+#on CL use the following calls
+from rearrange import rearrange_name
+rearrange_name("Lovelace, Ada")
+
+#how to write a rearrange test file
+#python has a module called unit test
+
+
+#!/usr/bin/env python3
+from rearrange import rearrange_name
+import unittest
+
+class TestRearrange(unittest.TestCase):
+  def test_basic(self):
+    testcase ="Lovelace, Ada"
+    expected = "Ada lovelace"
+    self.assertEqual(rearrange_name(testcase), expected)
+    
+#how to run a unittest
+unittest.main()
+
+#run the program now
+chmod +x rearrange_test.py
+./rearrange_test.py

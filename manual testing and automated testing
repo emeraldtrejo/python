@@ -6,7 +6,10 @@
 import re
 def rearrange_name(name):
   result = re.search(r"^([\w.]*)*)$", name)
-  returhn"{} {}".format(result[2], result[1])
+  if result is None:
+   # return "" 
+   return name    #this fixes the single name bug
+  return"{} {}".format(result[2], result[1])
 
 #on CL use the following calls
 from rearrange import rearrange_name
@@ -25,6 +28,22 @@ class TestRearrange(unittest.TestCase):
     testcase ="Lovelace, Ada"
     expected = "Ada lovelace"
     self.assertEqual(rearrange_name(testcase), expected)
+    
+  def test_empty(self):
+    testcase = ""
+    expected = ""
+    self.assertEqual(rearrange_name(testcase), expected)
+  
+  def test_double_name(self):
+    testcase = "Hopper, Grace M."
+    expected = "Grace M. Hopper"
+    self.assertEqual(rearrange_name(testcase), expected)
+    
+  def test_one_name(self):
+    testcase = "Voltaire"
+    expected = "Voltaire"
+    self.assertEqual(rearrange_name(testcase), expected)
+    
     
 #how to run a unittest
 unittest.main()

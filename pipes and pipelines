@@ -1,0 +1,8 @@
+cat spider.txt | tr ' ' '\n' | sort | uniq -c | sort -nr | head
+tr is for translate
+put each word in its own line
+then pass to sort command and sorts them alphabetically
+unique command shows the match once -c shows how many times occurred
+-nr sorts numerically from most to least hits
+head prints the first 10 lines to stdout
+
